@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Todo - Index{% endblock title %}
+
+{% block body %}
+  <form method="POST">
+    {% csrf_token %}
+    <h4>Are you sure?</h4>
+    <button type="submit" name="yes_delete_todo" value="yes_delete_todo">DELETE</button>
+    <button type="submit" name="no_delete_todo" value="no_delete_todo">CANCEL</button>
+  </form>
+{% endblock body %}
+
+{% block scripts %}{% endblock scripts %}

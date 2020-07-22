@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Todo - Index{% endblock title %}
+
+{% block body %}
+  <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" name="add_todo" value="add_todo">ADD</button>
+  </form>
+
+  <ul>
+    {% for todo in todos %}
+    <li>{{ todo.todo }} - <a href="{% url 'todo-delete' pk=todo.pk %}">delete</a></li>
+    {% endfor %}
+  </ul>
+{% endblock body %}
+
+{% block scripts %}{% endblock scripts %}
